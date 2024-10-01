@@ -1,0 +1,23 @@
+Programação para Dispositivos Móveis
+2024
+Profa. Karen Borges
+
+
+Descrição:
+Deverá ser desenvolvida uma aplicação de baixa/média complexidade sobre um tema a ser escolhido pelo aluno. Os alunos poderão trabalhar individualmente ou em duplas.
+Os projetos deverão conter:
+tela de abertura (splash screen)
+persistência de dados em banco de dados relacional (as operações básicas de CRUD)
+validação de campos (no caso de aplicações que contenham formulários)
+um Widget além dos vistos em aula.
+
+Prazos:
+24/08 - Entrega da descrição do sistema que será desenvolvido
+07/10 - Entrega do protótipo com o planejamento das rotas de navegação
+04/11 - apresentação do projeto em desenvolvimento 
+09/12 - apresentação final
+
+Avaliação:
+Execução do projeto localmente na máquina
+Execução do projeto a partir de um dispositivo móvel (de escolha do aluno)
+Usabilidade do sistema 
