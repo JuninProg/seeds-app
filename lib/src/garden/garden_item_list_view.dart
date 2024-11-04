@@ -13,10 +13,12 @@ class GardenItemListView extends StatelessWidget {
           1,
           'alguma horta',
           {
-            PlantItem(
-                1, 1, 'alguma planta', 'planta legal demais', 'water-lily.png')
+            PlantItem(1, 1, 'alguma planta', 'planta legal demais',
+                'water-lily.png', 'Fruta', 'Verão', 30)
           },
-          'water-lily.png')
+          'water-lily.png',
+          'alguma localização',
+          1000.10),
     ],
   });
 

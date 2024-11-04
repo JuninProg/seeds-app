@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/src/components/charts/pie_chart_2.dart';
+import 'package:seeds/src/components/charts/scatter_chart.dart';
 import 'package:seeds/src/components/navbar/bottom_navigation_bar.dart';
 import 'package:seeds/src/plant/plant_item.dart';
-import 'package:seeds/src/plant/plant_item_details_view.dart';
 
 class PlantItemListView extends StatelessWidget {
   const PlantItemListView({
     super.key,
     this.items = const [
-      PlantItem(1, 1, 'alguma planta', 'planta legal demais', 'water-lily.png')
+      PlantItem(1, 1, 'Tomate', 'Planta de tomate', 'tomato.png', 'Vegetal',
+          'Verão', 30),
+      PlantItem(
+          2, 1, 'Rosa', 'Planta de rosa', 'rose.png', 'Flor', 'Primavera', 15),
+      PlantItem(
+          3, 1, 'Maçã', 'Planta de maçã', 'apple.png', 'Fruta', 'Outono', 60),
     ],
   });
 
@@ -19,29 +25,22 @@ class PlantItemListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Plantas"),
+        title: const Text("Estatísticas das Plantas"),
       ),
-      body: ListView.builder(
-        restorationId: 'plantItemListView',
-        itemCount: items.length,
-        itemBuilder: (BuildContext context, int index) {
-          final item = items[index];
-
-          return ListTile(
-              title: Text(item.name),
-              leading: CircleAvatar(
-                foregroundImage: AssetImage('assets/images/${item.imageName}'),
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            PlantItemDetailsView(plant: item)));
-              });
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: PieChartSample2(items: items),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ScatterChartSample(items: items),
+            ),
+          ],
+        ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: const CustomBottomNavigationBar(currentIndex: 1),
     );
   }

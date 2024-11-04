@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:seeds/src/components/navbar/bottom_navigation_bar.dart';
 import 'package:seeds/src/garden/garden_item.dart';
 import 'package:seeds/src/plant/plant_create_view.dart';
+import 'package:seeds/src/plant/plant_item_details_view.dart';
 
 class GardenItemDetailsView extends StatelessWidget {
   const GardenItemDetailsView({
@@ -29,6 +30,14 @@ class GardenItemDetailsView extends StatelessWidget {
             leading: CircleAvatar(
               foregroundImage: AssetImage('assets/images/${plant.imageName}'),
             ),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PlantItemDetailsView(plant: plant),
+                ),
+              );
+            },
           );
         },
       ),
