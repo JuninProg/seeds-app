@@ -6,6 +6,9 @@ import 'package:seeds/src/garden/garden_item.dart';
 import 'package:seeds/src/garden/garden_item_details_view.dart';
 import 'package:seeds/src/garden/garden_item_list_view.dart';
 import 'package:seeds/src/plant/plant_create_view.dart';
+import 'package:seeds/src/plant/plant_item.dart';
+import 'package:seeds/src/plant/plant_item_details_view.dart';
+import 'package:seeds/src/plant/plant_item_list_view.dart';
 
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
@@ -72,6 +75,11 @@ class MyApp extends StatelessWidget {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
+                  case PlantItemListView.routeName:
+                    return const PlantItemListView();
+                  case PlantItemDetailsView.routeName:
+                    final plantItem = routeSettings.arguments as PlantItem;
+                    return PlantItemDetailsView(plant: plantItem);
                   case GardenItemDetailsView.routeName:
                     final gardenItem = routeSettings.arguments as GardenItem;
                     return GardenItemDetailsView(garden: gardenItem);

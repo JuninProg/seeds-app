@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/src/components/navbar/bottom_navigation_bar.dart';
 import 'package:seeds/src/garden/garden_item.dart';
-import 'package:seeds/src/garden/garden_item_list_view.dart';
 import 'package:seeds/src/plant/plant_item.dart';
 
 class GardenCreateView extends StatefulWidget {
@@ -17,7 +17,7 @@ class _GardenCreateViewState extends State<GardenCreateView> {
 
   String _gardenName = ''; // To store garden name input
   final Set<PlantItem> _plants = {}; // Placeholder for garden's plants
-  String _gardenImageName = 'water-lily.png';
+  final String _gardenImageName = 'water-lily.png';
 
   @override
   Widget build(BuildContext context) {
@@ -68,24 +68,7 @@ class _GardenCreateViewState extends State<GardenCreateView> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Hortas',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: 'Cadastrar',
-          ),
-        ],
-        currentIndex: 1,
-        onTap: (int index) {
-          if (index == 0) {
-            Navigator.pushNamed(context, GardenItemListView.routeName);
-          }
-        },
-      ),
+      bottomNavigationBar: const CustomBottomNavigationBar(currentIndex: -1),
     );
   }
 }

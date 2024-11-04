@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/src/components/navbar/bottom_navigation_bar.dart';
 import 'package:seeds/src/garden/garden_item.dart';
 import 'package:seeds/src/plant/plant_item.dart';
 
@@ -20,7 +21,7 @@ class _RegisterPlantViewState extends State<PlantCreateView> {
 
   String _plantName = '';
   String _description = '';
-  String _imageName = 'default.png'; // Placeholder para o nome da imagem
+  final String _imageName = 'default.png'; // Placeholder para o nome da imagem
 
   @override
   Widget build(BuildContext context) {
@@ -91,25 +92,7 @@ class _RegisterPlantViewState extends State<PlantCreateView> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Detalhes',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: 'Nova Planta',
-          ),
-        ],
-        currentIndex: 1, // Estamos na tela de registro da planta
-        onTap: (int index) {
-          if (index == 0) {
-            // Navegar para a tela de detalhes da horta
-            Navigator.pop(context); // Volta para a tela anterior (detalhes)
-          }
-        },
-      ),
+      bottomNavigationBar: const CustomBottomNavigationBar(currentIndex: -1),
     );
   }
 }

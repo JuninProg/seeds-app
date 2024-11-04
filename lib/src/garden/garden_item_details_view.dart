@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seeds/src/components/navbar/bottom_navigation_bar.dart';
 import 'package:seeds/src/garden/garden_item.dart';
 import 'package:seeds/src/plant/plant_create_view.dart';
 
@@ -31,30 +32,18 @@ class GardenItemDetailsView extends StatelessWidget {
           );
         },
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Detalhes',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add),
-            label: 'Cadastrar Planta',
-          ),
-        ],
-        currentIndex: 0, // Estamos na tela de detalhes
-        onTap: (int index) {
-          if (index == 1) {
-            // Navegar para a tela de registro de uma nova planta
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => PlantCreateView(gardenItem: garden),
-              ),
-            );
-          }
+      floatingActionButton: CustomFloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PlantCreateView(gardenItem: garden),
+            ),
+          );
         },
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: const CustomBottomNavigationBar(currentIndex: -1),
     );
   }
 }

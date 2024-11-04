@@ -1,37 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:seeds/src/components/navbar/bottom_navigation_bar.dart';
-import 'package:seeds/src/garden/garden_create_view.dart';
-import 'package:seeds/src/garden/garden_item.dart';
-import 'package:seeds/src/garden/garden_item_details_view.dart';
 import 'package:seeds/src/plant/plant_item.dart';
+import 'package:seeds/src/plant/plant_item_details_view.dart';
 
-class GardenItemListView extends StatelessWidget {
-  const GardenItemListView({
+class PlantItemListView extends StatelessWidget {
+  const PlantItemListView({
     super.key,
     this.items = const [
-      GardenItem(
-          1,
-          'alguma horta',
-          {
-            PlantItem(
-                1, 1, 'alguma planta', 'planta legal demais', 'water-lily.png')
-          },
-          'water-lily.png')
+      PlantItem(1, 1, 'alguma planta', 'planta legal demais', 'water-lily.png')
     ],
   });
 
-  static const routeName = '/gardens';
+  static const routeName = '/plants';
 
-  final List<GardenItem> items;
+  final List<PlantItem> items;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Hortas"),
+        title: const Text("Plantas"),
       ),
       body: ListView.builder(
-        restorationId: 'gardenItemListView',
+        restorationId: 'plantItemListView',
         itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           final item = items[index];
@@ -46,15 +37,12 @@ class GardenItemListView extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            GardenItemDetailsView(garden: item)));
+                            PlantItemDetailsView(plant: item)));
               });
         },
       ),
-      floatingActionButton: CustomFloatingActionButton(onPressed: () {
-        Navigator.pushNamed(context, GardenCreateView.routeName);
-      }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: const CustomBottomNavigationBar(currentIndex: 0),
+      bottomNavigationBar: const CustomBottomNavigationBar(currentIndex: 1),
     );
   }
 }
